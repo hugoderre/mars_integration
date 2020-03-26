@@ -1,0 +1,62 @@
+header {
+    height: 1032px;
+    position: relative;
+    z-index: 1;
+    .header__dual-bg{
+        background: linear-gradient(to right,  rgb(239, 242, 246) 0%,rgb(239, 242, 246) 62%,rgb(255, 52, 61) 62%,rgb(255, 52, 61) 100%);
+        position:absolute;
+        top:0;
+        left:0;
+        height:100%;
+        width:100%;
+        z-index: -1;
+        
+    }
+    
+    .header__container {
+        padding-top: 70px;
+        @extend .grid;
+        .one {
+            grid-column: 1;
+            grid-row: 1;
+            display: grid;
+            grid-template-columns: 143px 1fr;
+            grid-template-rows: 18px;
+            grid-template-areas: "mars phone";
+            & > h1 {
+                font-family: "Montserrat", sans-serif;
+                font-weight: 900;
+                grid-area: mars;
+            }
+            & > p {
+                grid-area: phone;
+                white-space: nowrap;
+                font-size: 14px;
+                font-family: "Montserrat", sans-serif;
+                font-weight: bold;
+                color: rgb(146, 161, 165);
+                &::before {
+                    content: url("img/Phone.png");
+                }
+            }
+            @media screen and (max-width: 768px) {
+                grid-template-areas:
+                    "mars"
+                    "phone";
+            }
+        }
+        .four {
+            grid-column: 4;
+            & > p {
+                font-size: 16px;
+                font-family: "Montserrat", sans-serif;
+                font-weight: bold;
+                text-align: right;
+                color: #FFF;
+                &::after {
+                    content: "\002261"
+                }
+            }
+        }
+    }
+}
